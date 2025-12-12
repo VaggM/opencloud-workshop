@@ -14,6 +14,7 @@ datasources:
   
   - name: grafana-postgresql-datasource
     type: grafana-postgresql-datasource
+    uid: P78DC24F8AA21B398
     url: 'postgres:5432'
     user: 'POSTGRES_USER'
     secureJsonData:

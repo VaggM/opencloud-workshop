@@ -1,41 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "ds_grafana-postgresql-datasource",
-      "label": "earthquakes",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-postgresql-datasource",
-      "pluginName": "PostgreSQL"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "geomap",
-      "name": "Geomap",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "12.3.0"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-postgresql-datasource",
-      "name": "PostgreSQL",
-      "version": "12.3.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -55,12 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 1,
   "links": [],
   "panels": [
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${ds_grafana-postgresql-datasource}"
+        "uid": "P78DC24F8AA21B398"
       },
       "fieldConfig": {
         "defaults": {
@@ -95,8 +59,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
-        "w": 10,
+        "h": 8,
+        "w": 12,
         "x": 0,
         "y": 0
       },
@@ -113,12 +77,12 @@
           "dataset": "earth",
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${ds_grafana-postgresql-datasource}"
+            "uid": "P78DC24F8AA21B398"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n    time,\r\n    latitude,\r\n    longitude,\r\n    mag,\r\n    place,\r\n    id\r\nFROM\r\n    earthquakes\r\nWHERE\r\n    $__timeFilter(\"time\")\r\nORDER BY\r\n    mag DESC\r\nLIMIT 25;",
+          "rawSql": "SELECT\n  time,\n  latitude,\n  longitude,\n  mag,\n  place,\n  id\nFROM earthquakes\nWHERE $__timeFilter(time)\nORDER BY mag DESC\nLIMIT 25; ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -167,7 +131,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "${ds_grafana-postgresql-datasource}"
+        "uid": "P78DC24F8AA21B398"
       },
       "fieldConfig": {
         "defaults": {
@@ -203,12 +167,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 13,
+        "h": 8,
         "w": 12,
-        "x": 11,
+        "x": 12,
         "y": 0
       },
-      "id": 1,
+      "id": 3,
       "options": {
         "basemap": {
           "config": {
@@ -296,12 +260,12 @@
           "dataset": "earth",
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "${ds_grafana-postgresql-datasource}"
+            "uid": "P78DC24F8AA21B398"
           },
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT\r\n    time,\r\n    latitude,\r\n    longitude,\r\n    mag,\r\n    place,\r\n    id\r\nFROM\r\n    earthquakes\r\nWHERE\r\n    $__timeFilter(\"time\")\r\nORDER BY\r\n    mag DESC;",
+          "rawSql": "SELECT\n  time,\n  latitude,\n  longitude,\n  mag,\n  place,\n  id\nFROM earthquakes\nWHERE $__timeFilter(time)\nORDER BY mag DESC; ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -333,14 +297,12 @@
     "list": []
   },
   "time": {
-    "from": "now-90d",
-    "to": "now"
+    "from": "2025-10-31T22:00:00.000Z",
+    "to": "2025-11-30T21:59:59.000Z"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Earthquakes",
-  "uid": "add87rj",
-  "version": 8,
-  "weekStart": "",
-  "id": null
+  "uid": "addtz5t",
+  "version": 1
 }

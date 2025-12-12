@@ -1,0 +1,27 @@
+
+services:
+  prometheus:
+    image: prom/prometheus:v3.8.0
+    volumes:
+      - "./prometheus:/etc/prometheus" 
+    restart: unless-stopped
+
+  node_exporter:
+    image: prom/node-exporter:v1.10.2
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:12.3
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./.env
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      # add datasources
+      - ./grafana/datasources_01.yaml:/etc/grafana/provisioning/datasources/main.yaml
+      # add dashboards
+      - ./grafana/dashboards.yaml:/etc/grafana/provisioning/dashboards/main.yaml
+      - ./grafana/dashboards/prometheus.json:/var/lib/grafana/dashboards/prometheus.json
+    restart: unless-stopped

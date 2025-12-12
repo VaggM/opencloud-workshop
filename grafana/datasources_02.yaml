@@ -1,0 +1,25 @@
+# Configuration file version
+apiVersion: 1
+
+# List of data sources to delete from the database.
+deleteDatasources:
+  - name: prometheus
+    orgId: 1
+
+datasources:
+  - name: prometheus
+    type: prometheus
+    url: 'http://prometheus:9090'
+    editable: true
+  
+  - name: grafana-postgresql-datasource
+    type: grafana-postgresql-datasource
+    url: 'postgres:5432'
+    user: 'POSTGRES_USER'
+    secureJsonData:
+      password: 'POSTGRES_PASS'
+    jsonData:
+      database: earth
+      sslmode: 'disable'
+      postgresVersion: 1400
+    editable: true

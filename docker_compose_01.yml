@@ -1,0 +1,17 @@
+
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - "./prometheus:/etc/prometheus" 
+    restart: unless-stopped
+
+  node_exporter:
+    image: prom/node-exporter
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
